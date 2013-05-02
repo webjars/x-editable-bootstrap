@@ -3,6 +3,6 @@
 // Ensure any request for this webjar brings in jQuery.
 requirejs.config({
     shim: {
-        "x-editable": [ 'webjars!bootstrap.js' ]
+        "bootstrap-editable": [ 'webjars!bootstrap.js' ]
     }
 });
