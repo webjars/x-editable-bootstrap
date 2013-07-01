@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>x-editable-bootstrap</artifactId>
-    <version>1.4.3-2-SNAPSHOT</version>
+    <version>1.4.5</version>
     <name>X-editable Bootstrap</name>
     <description>WebJar for X-editable Bootstrap</description>
     <url>http://webjars.org</url>
@@ -49,7 +49,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>1.4.3</upstream.version>
+        <upstream.version>1.4.5</upstream.version>
         <upstream.url>http://vitalets.github.com/x-editable/assets/zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
     </properties>
