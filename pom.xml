@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>x-editable-bootstrap</artifactId>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>1.5.1-1-SNAPSHOT</version>
     <name>X-editable Bootstrap</name>
     <description>WebJar for X-editable Bootstrap</description>
     <url>http://webjars.org</url>
@@ -52,6 +52,16 @@
         <upstream.version>1.5.1</upstream.version>
         <upstream.url>http://vitalets.github.com/x-editable/assets/zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
+        <requirejs>
+            {
+                "paths": {
+                    "bootstrap-editable": "js/bootstrap-editable"
+                },
+                "shim": {
+                    "bootstrap-editable": [ "bootstrap" ]
+                }
+            }
+        </requirejs>
     </properties>
 
     <build>
@@ -84,11 +94,11 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
-                                <echo message="moving resources" />
+                                <echo message="unzip archive"/>
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
+                                <echo message="moving resources"/>
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/bootstrap3-editable" />
+                                    <fileset dir="${project.build.directory}/bootstrap3-editable"/>
                                 </move>
                             </target>
                         </configuration>
@@ -98,7 +108,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>2.5.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.5</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>sonatype-nexus-staging</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
         <resources>
